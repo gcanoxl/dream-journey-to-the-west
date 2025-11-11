@@ -1,13 +1,20 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'app.g.dart';
+part 'app_provider.g.dart';
 
-enum AppState { mainMenu }
+enum AppState {
+  mainMenu,
+  characterSelection,
+}
 
 @riverpod
 class App extends _$App {
   @override
   AppState build() {
     return AppState.mainMenu;
+  }
+
+  set(AppState appState) {
+    state = appState;
   }
 }

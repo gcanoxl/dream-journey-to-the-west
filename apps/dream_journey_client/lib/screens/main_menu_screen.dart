@@ -1,5 +1,6 @@
 import 'package:dream_journey_client/l10n/app_localizations.dart';
-import 'package:dream_journey_client/widgets/shared/menu_list.dart';
+import 'package:dream_journey_client/providers/app_provider.dart';
+import 'package:dream_journey_client/widgets/shared/text_menu_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -21,11 +22,13 @@ class MainMenuScreen extends ConsumerWidget {
           Column(
             children: [
               Spacer(),
-              MenuList(
+              TextMenuList(
                 items: [
                   {
                     locale.newGame: () {
-                      print('new game');
+                      ref
+                          .read(appProvider.notifier)
+                          .set(AppState.characterSelection);
                     },
                   },
                   {

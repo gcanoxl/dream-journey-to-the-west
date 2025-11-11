@@ -76,6 +76,11 @@ flutter:
       - assets/audio/bgm/bgm_main.mp3
     # images
       - assets/images/levels/level1/level_static_1_bg.png
+    # characters
+      - assets/images/character_selection/character_1.png
+      - assets/images/character_selection/character_2.png
+      - assets/images/character_selection/character_3.png
+      - assets/images/character_selection/character_4.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class MenuList extends StatefulWidget {
-  const MenuList({super.key, required this.items});
+class HorizontalMenuList extends StatefulWidget {
+  const HorizontalMenuList({super.key, required this.items});
 
-  final List<Map<String, VoidCallback>> items;
+  final List<Map<Widget, VoidCallback>> items;
 
   @override
-  State<MenuList> createState() => _MenuListState();
+  State<HorizontalMenuList> createState() => _HorizontalMenuListState();
 }
 
-class _MenuListState extends State<MenuList> {
+class _HorizontalMenuListState extends State<HorizontalMenuList> {
   _perform() {
     widget.items[currentIndex].values.first.call();
   }
@@ -52,12 +52,11 @@ class _MenuListState extends State<MenuList> {
       },
       child: GestureDetector(
         onTap: _perform,
-        child: Column(
+        child: Row(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: List.generate(widget.items.length, (index) {
             return _MenuListTile(
-              title: widget.items[index].keys.first,
               isSelected: currentIndex == index,
               index: index,
               onSelected: (index) {
@@ -65,6 +64,7 @@ class _MenuListState extends State<MenuList> {
                   currentIndex = index;
                 });
               },
+              child: widget.items[index].keys.first,
             );
           }),
         ),
@@ -75,13 +75,13 @@ class _MenuListState extends State<MenuList> {
 
 class _MenuListTile extends StatelessWidget {
   const _MenuListTile({
-    required this.title,
+    required this.child,
     required this.isSelected,
     required this.index,
     required this.onSelected,
   });
 
-  final String title;
+  final Widget child;
   final bool isSelected;
   final int index;
   final Function(int index) onSelected;
@@ -91,37 +91,28 @@ class _MenuListTile extends StatelessWidget {
     return MouseRegion(
       onHover: (event) => onSelected(index),
       child: Container(
-        height: 48,
-        width: 240,
+        height: 120,
+        width: 120,
         margin: const EdgeInsets.all(8),
         decoration: BoxDecoration(
           color: Colors.black.withAlpha(200),
           borderRadius: BorderRadius.circular(8),
         ),
         padding: const EdgeInsets.all(8),
-        child: Row(
-          children: [
-            Spacer(),
-            _buildContent(),
-            Spacer(),
-          ],
-        ),
+        child: _buildContent(),
       ),
     );
   }
 
   Widget _buildContent() {
-    final style = TextStyle(color: Colors.white);
     if (!isSelected) {
-      return Text(title, style: style);
+      return child;
     } else {
-      return Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(Icons.arrow_left, color: Colors.white),
-          Text(title, style: style),
-          Icon(Icons.arrow_right, color: Colors.white),
-        ],
+      return Container(
+        decoration: BoxDecoration(
+          color: Colors.grey,
+        ),
+        child: child,
       );
     }
   }
