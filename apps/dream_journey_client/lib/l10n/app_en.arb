@@ -1,0 +1,18 @@
+{
+	"newGame": "New Game",
+	"@newGame": {
+		"description": "Button label that starts a brand-new adventure."
+	},
+	"loadGame": "Load Game",
+	"@loadGame": {
+		"description": "Button label that loads a previously saved adventure."
+	},
+	"settings": "Settings",
+	"@settings": {
+		"description": "Button label that opens the game settings menu."
+	},
+	"exit": "Exit",
+	"@exit": {
+		"description": "Button label that closes the game."
+	}
+}
