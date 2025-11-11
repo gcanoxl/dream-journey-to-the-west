@@ -121,6 +121,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Exit'**
   String get exit;
+
+  /// The first level of the game.
+  ///
+  /// In en, this message translates to:
+  /// **'Road to the Heaven'**
+  String get roadToTheHeaven;
 }
 
 class _AppLocalizationsDelegate

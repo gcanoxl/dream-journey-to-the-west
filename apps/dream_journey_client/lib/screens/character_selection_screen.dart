@@ -41,6 +41,9 @@ class CharacterSelectionScreen extends ConsumerWidget {
                         ref
                             .read(selectedCharacterProviderProvider.notifier)
                             .set(Character.values[index]);
+                        ref
+                            .read(appProvider.notifier)
+                            .set(AppState.levelSelection);
                       },
                     },
                   ),

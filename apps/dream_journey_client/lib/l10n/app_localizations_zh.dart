@@ -19,4 +19,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get exit => '退出';
+
+  @override
+  String get roadToTheHeaven => '天宫道';
 }

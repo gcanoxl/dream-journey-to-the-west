@@ -14,5 +14,9 @@
 	"exit": "Exit",
 	"@exit": {
 		"description": "Button label that closes the game."
+	},
+	"roadToTheHeaven":"Road to the Heaven",
+	"@roadToTheHeaven": {
+		"description": "The first level of the game."
 	}
 }

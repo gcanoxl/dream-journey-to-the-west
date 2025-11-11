@@ -5,6 +5,7 @@ part 'app_provider.g.dart';
 enum AppState {
   mainMenu,
   characterSelection,
+  levelSelection,
 }
 
 @riverpod
