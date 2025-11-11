@@ -1,5 +1,6 @@
 import 'package:dream_journey_client/providers/app_provider.dart';
 import 'package:dream_journey_client/screens/character_selection_screen.dart';
+import 'package:dream_journey_client/screens/game_screen.dart';
 import 'package:dream_journey_client/screens/level_selection_screen.dart';
 import 'package:dream_journey_client/screens/main_menu_screen.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,8 @@ class App extends ConsumerWidget {
         return CharacterSelectionScreen();
       case AppState.levelSelection:
         return LevelSelectionScreen();
+      case AppState.inGame:
+        return GameScreen();
     }
   }
 }

@@ -6,6 +6,7 @@ enum AppState {
   mainMenu,
   characterSelection,
   levelSelection,
+  inGame,
 }
 
 @riverpod
